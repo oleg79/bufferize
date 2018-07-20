@@ -1,0 +1,39 @@
+{
+  "name": "bufferize",
+  "version": "0.1.0",
+  "description": "Save function invocation results into a buffer for specified amount of time and get back an array of the invocation results at the expiration or beforehand",
+  "main": "build/index.js",
+  "scripts": {
+    "dev": "watch 'npm run build'",
+    "build": "babel src -d build",
+    "test": "jest",
+    "test:watch": "npm test -- --watch"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oleg79/bufferize.git"
+  },
+  "keywords": [
+    "buffer",
+    "bufferize",
+    "invocation",
+    "time"
+  ],
+  "author": "Oleg Kapustin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oleg79/bufferize/issues"
+  },
+  "homepage": "https://github.com/oleg79/bufferize#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.4.1",
+    "watch": "^1.0.2"
+  }
+}
