@@ -1,4 +1,4 @@
-import bufferize from '.'
+import { bufferize } from '.'
 
 const callingFunction = x => x * x
 

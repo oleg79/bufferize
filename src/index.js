@@ -1,4 +1,4 @@
-export default (callingFunction, time, releaseFunction) => {
+export const bufferize = (callingFunction, time, releaseFunction) => {
   let buffer = []
   let isBuffering = false
   let timerId
