@@ -37,11 +37,17 @@ it('should return a proper latest result of the invocation', () => {
 
 
 
-it('should stop bufferizing after beforehand release', done => {
+it('should stop buffer after beforehand release and restart after next fire', done => {
+
+  let stop = false
+
   const releaseFunction = args => {
-    expect(args).toEqual([1,4,9,16])
-    done()
-    return args;
+    if (stop) {
+      expect(args).toEqual([16,25])
+      done()
+    }
+    stop = true
+    return args
   }
 
   const buffered = bufferize(callingFunction, 100, releaseFunction)
@@ -49,10 +55,12 @@ it('should stop bufferizing after beforehand release', done => {
   buffered.fire(1)
   buffered.fire(2)
   buffered.fire(3)
+
+  const result = buffered.release();
+
+  expect(result).toEqual([1,4,9])
+
   buffered.fire(4)
-
-  buffered.release();
-
   buffered.fire(5)
 })
 

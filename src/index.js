@@ -19,6 +19,7 @@ export const bufferize = (callingFunction, time, releaseFunction) => {
     },
 
     release() {
+      isBuffering = false
       const output = buffer.splice(0)
       clearTimeout(timerId)
       return releaseFunction ? releaseFunction(output) : output
