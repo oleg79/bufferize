@@ -1,5 +1,5 @@
 {
-  "name": "bufferize",
+  "name": "accumul",
   "version": "0.1.0",
   "description": "Save function invocation results into a buffer for specified amount of time and get back an array of the invocation results at the expiration or beforehand",
   "main": "build/index.js",
@@ -23,6 +23,7 @@
     "buffer",
     "bufferize",
     "invocation",
+    "accumulation",
     "time"
   ],
   "author": "Oleg Kapustin",

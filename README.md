@@ -1,18 +1,18 @@
 # Example
 
 ```shell
-$ npm install bufferize --save
+$ npm install accumul --save
 
 ```
 or using yarn
 ```shell
-$ yarn add bufferize
+$ yarn add accumul
 ```
 
 ```javascript
-const { bufferize } = require('bufferize')
+const { accumul } = require('accumul')
 // ES2015 modules
-import { bufferize } from 'bufferize'
+import { accumul } from 'accumul'
 
 const callingFunction = x => x * x
 
@@ -20,7 +20,7 @@ const releaseFunction = args => {
   console.log(args)
 }
 
-const buffered = bufferize(callingFunction, 2000, releaseFunction)
+const buffered = accumul(callingFunction, 2000, releaseFunction)
 
 buffered.fire(1)
 buffered.fire(2)
@@ -32,7 +32,7 @@ buffered.fire(4)
 
 // or you can release buffered values beforehand
 
-const buffered = bufferize(callingFunction, 2000, releaseFunction)
+const buffered = accumul(callingFunction, 2000, releaseFunction)
 
 buffered.fire(1)
 buffered.fire(2)

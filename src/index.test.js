@@ -1,4 +1,4 @@
-import { bufferize } from '.'
+import { accumul } from '.'
 
 const callingFunction = x => x * x
 
@@ -8,7 +8,7 @@ it('should return a proper array of invocation arguments', done => {
     done()
   }
 
-  const buffered = bufferize(callingFunction, 100, releaseFunction)
+  const buffered = accumul(callingFunction, 100, releaseFunction)
 
   buffered.fire(1)
   buffered.fire(2)
@@ -20,7 +20,7 @@ it('should return a proper array of invocation arguments', done => {
 
 
 it('should return a proper latest result of the invocation', () => {
-  const buffered = bufferize(callingFunction, 100, () => {})
+  const buffered = accumul(callingFunction, 100, () => {})
 
   buffered.fire(1)
   expect(buffered.latest()).toBe(1)
@@ -50,7 +50,7 @@ it('should stop buffer after beforehand release and restart after next fire', do
     return args
   }
 
-  const buffered = bufferize(callingFunction, 100, releaseFunction)
+  const buffered = accumul(callingFunction, 100, releaseFunction)
 
   buffered.fire(1)
   buffered.fire(2)
@@ -69,7 +69,7 @@ it('should stop buffer after beforehand release and restart after next fire', do
 it('should return buffer on beforehand release', () => {
   const releaseFunction = args => args
 
-  const buffered = bufferize(callingFunction, 100, releaseFunction)
+  const buffered = accumul(callingFunction, 100, releaseFunction)
 
   buffered.fire(1)
   buffered.fire(2)
@@ -87,7 +87,7 @@ it('should stop bufferization after the expiration', done => {
     done()
   }
 
-  const buffered = bufferize(callingFunction, 0, releaseFunction)
+  const buffered = accumul(callingFunction, 0, releaseFunction)
 
   setTimeout(() => {
     buffered.fire(5)

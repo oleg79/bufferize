@@ -1,4 +1,4 @@
-export const bufferize = (callingFunction, time, releaseFunction) => {
+export const accumul = (callingFunction, time, releaseFunction) => {
   let buffer = []
   let isBuffering = false
   let timerId
